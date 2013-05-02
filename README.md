@@ -52,7 +52,7 @@ Mqa.off("smallscreen", handlerFunction)
 Mqa.remove("smallscreen")
 ```
 
-有了假名方法, 可以在JS层上更加清晰方便的组织代码, 更方面的响应多终端
+有了假名方法, 可以在JS层上更加清晰方便的组织代码, 更方便的响应多终端
 
 ##TODO
 1. 移动端webkit浏览器BUG FIX
