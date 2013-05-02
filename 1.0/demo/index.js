@@ -35,17 +35,11 @@ KISSY.use('gallery/mqa/1.0/index', function (S, Mqa) {
         //直接通过媒体查询字符串判断最小宽度
         on("(min-width:400px)", createRet).
         //添加媒体查询字符串的假名
-        add('smallscreen', "(min-width:400px)").
+        add('smallscreen', "(min-width:1000px)").
         //到这里，可直接对假名进行事件监听
         on('smallscreen', function (mql) {
             createRet(mql)
         })
-
-    var t = window.matchMedia("(orientation:landscape)")
-    alert(t.addListener)
-    t.addListener(function(mql){
-        alert(mql.matches)
-    })
 
 
     ~function () {
