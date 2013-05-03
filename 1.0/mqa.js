@@ -4,6 +4,42 @@
  **/
 ;
 KISSY.add(function () {
+    /*! matchMedia() polyfill - Test a CSS media type/query in JS.
+     Authors & copyright (c) 2012: Scott Jehl, Paul Irish, Nicholas Zakas. Dual MIT/BSD license */
+
+    window.matchMedia = window.matchMedia || (function (doc, undefined) {
+
+        "use strict"
+
+        var bool,
+            docElem = doc.documentElement,
+            refNode = docElem.firstElementChild || docElem.firstChild,
+        // fakeBody required for <FF4 when executed in <head>
+            fakeBody = doc.createElement("body"),
+            div = doc.createElement("div")
+
+        div.id = "mq-test-1"
+        div.style.cssText = "position:absolute;top:-100em"
+        fakeBody.style.background = "none"
+        fakeBody.appendChild(div)
+
+        return function (q) {
+
+            div.innerHTML = "&shy;<style media=\"" + q + "\"> #mq-test-1 { width: 42px; }</style>"
+
+            docElem.insertBefore(fakeBody, refNode)
+            bool = div.offsetWidth === 42
+            docElem.removeChild(fakeBody)
+
+            return {
+                matches: bool,
+                media: q
+            }
+
+        }
+
+    }(window.document))
+
     var aliasMap = {}
 
     var wrapMqlFn = function (mql, fn) {
@@ -16,14 +52,21 @@ KISSY.add(function () {
         return wrap
     }
 
-    var mqa = {
+    /**
+     * 单例类Mqa
+     * @class Mqa
+     * @type {{add: Function, remove: Function, on: Function, off: Function, match: Function}}
+     */
+    var Mqa = {
         /**
          * 添加假名映射
+         *
+         * @member add
          * @param {String} alias 要映射的假名
          * @param {String} media 要做映射的媒体查询名
          * @return this;
          * @example
-         * mqa.add("landscape", "(orientation: landscape)");
+         * Mqa.add("landscape", "(orientation: landscape)");
          */
         add: function (alias, media) {
             if (alias in aliasMap) {
@@ -42,15 +85,19 @@ KISSY.add(function () {
 
         /**
          * 移除假名映射
+         *
+         * @member remove
          * @param {String} alias 要移除的假名
          * @return {Boolean} 是否移除成功
          */
         remove: function (alias) {
-           return this.off(alias) ?  delete aliasMap[alias] : false
+            return this.off(alias) ? delete aliasMap[alias] : false
         },
 
         /**
          * 监听媒体字符串变化事件
+         *
+         * @member on
          * @param {String} alias
          * 媒体查询假名,或者媒体查询字符串
          * @param {function(mql)} fn
@@ -97,10 +144,16 @@ KISSY.add(function () {
 
         /**
          * 移除媒体字符串变化监听事件
+         *
+         * @member off
          * @param alias 要移除的假名
-         * @param {function} fn 可选，若未传入，则移除该假名下所有事件（此时等价于remove），
-         * 否则移除对应的监听函数
-         * @return {Boolean} 返回是否成功移除
+         * @param {function} fn 可选，若未传入，则移除该假名下所有事件（此时等价于remove），否则移除对应的监听函数
+         * @returns {boolean} 返回是否成功移除
+         * @example
+         * //移除特定的监听函数
+         * Mqa.off("landscape", changeFunction)
+         * //移除所有监听函数
+         * Mqa.off("landscape")
          */
         off: function (alias, fn) {
             if (!(alias in aliasMap)) {
@@ -143,8 +196,10 @@ KISSY.add(function () {
 
         /**
          * 测试当前浏览器是否符合假名所指向的媒体查询他特性
+         *
+         * @member match
          * @param {String} alias 媒体假名或媒体查询字符串
-         * @returns {Boolean|} 返回是否匹配对应的假名
+         * @returns {boolean} 返回是否匹配对应的假名
          * @example
          * mqa.add("landscape", "(orientation: landscape");
          * mqa.match("landscape"); // => true or false
@@ -155,5 +210,5 @@ KISSY.add(function () {
         }
     }
 
-    return mqa
+    return Mqa
 })
