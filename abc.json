@@ -1,6 +1,13 @@
 {
-    "name": "Mqa",
-    "version":"1.0",
-    "author":{"name":"踏风","email":"tafeng.dxx@taobao.com","page":"https://exodia.net"},
-    "desc":"异步文件上传组件"
+    "name": "mqa",
+    "version": "1.0",
+    "desc": "媒体查询假名组件",
+    "cover": "",
+    "author": {
+        "name": "踏风",
+        "email": "tafeng.dxx@taobao.com",
+        "page": "http://exodia.net"
+    },
+    "type": "kissy-pie",
+    "type-url": "http://abc.alibaba-inc.com/r/kissy-pie"
 }
