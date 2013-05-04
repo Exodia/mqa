@@ -1,0 +1,6 @@
+{
+    "name": "Mqa",
+    "version":"1.0",
+    "author":{"name":"踏风","email":"tafeng.dxx@taobao.com","page":"https://exodia.net"},
+    "desc":"异步文件上传组件"
+}

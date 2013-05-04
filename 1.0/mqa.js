@@ -49,7 +49,17 @@ KISSY.add(function () {
     }
 
     /**
-     * 媒体查询假名
+     * 媒体查询假名, 基本用法:
+     *      KISSY.use("gallery/mqa/1.0/index", function(S, Mqa){
+     *          Mqa.add("landscape", "(orientation: landscape)").
+     *              on("landscape", function(mql){
+     *                 if(mql.matches) {
+     *                     //matches code
+     *                 } else {
+     *
+     *                 }
+     *              })
+     *      })
      * @class Mqa
      * @singleton
      */
