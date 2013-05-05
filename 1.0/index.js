@@ -8,7 +8,7 @@ KISSY.add(function (S, Mqa) {
 
     return Mqa
 }, {
-    requires: ["./mqa.js"]
+    requires: ["./mqa"]
 })
 
 
