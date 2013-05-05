@@ -9,6 +9,7 @@ Mqa是一个简单媒体查询假名库, 是对浏览器原生的matchMedia做�
 2. 统一管理媒体查询对象: 不用自己到处管理MediaQueryList对象, Mqa帮您做了统一管理
 
 [DEMO](#!/example)
+[API参考](#!/api/Mqa)
 
 ##注册假名和监听事件
 
