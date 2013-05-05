@@ -56,5 +56,3 @@ Mqa.remove("smallscreen")
 
 ##TODO
 1. 移动端webkit浏览器BUG FIX
-2. IE9 matchMedia pollyfill
-3. 帮助文档补全
