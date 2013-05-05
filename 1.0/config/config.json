@@ -1,0 +1,9 @@
+{
+    "--title": "Mqa帮助文档",
+    "--output": "../doc/",
+    "--guides": "guide.json",
+    "--examples": "example.json",
+    "--examples-base-url": "../demo/",
+    "--eg-iframe": "eg-iframe.html",
+    "--": ["../mqa.js"]
+}

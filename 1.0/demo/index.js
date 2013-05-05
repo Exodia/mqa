@@ -31,7 +31,7 @@ KISSY.use('gallery/mqa/1.0/index', function (S, Mqa) {
     }
     Mqa.add('landscape', "(orientation:landscape)").
         //立即执行
-        on('landscape', createRet).
+        on('landscape', createRet, true).
         //直接通过媒体查询字符串判断最小宽度
         on("(min-width:400px)", createRet).
         //添加媒体查询字符串的假名
