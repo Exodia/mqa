@@ -1,3 +1,1 @@
-<script>
-    location.href = "../doc/index.html#!/guide"
-</script>
+[点我进入]（../doc/index.html#!/guide）
