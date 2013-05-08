@@ -1,1 +1,1 @@
-[点我进入]（../doc/index.html#!/guide）
+[点我进入](../doc/index.html#!/guide)
