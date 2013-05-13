@@ -3,7 +3,7 @@ KISSY.add(function () {
     /*! matchMedia() polyfill - Test a CSS media type/query in JS.
      Authors & copyright (c) 2012: Scott Jehl, Paul Irish, Nicholas Zakas. Dual MIT/BSD license */
 
-    window.matchMedia = window.matchMedia || (function (doc, undefined) {
+    window.matchMedia = window.matchMedia || (function (doc) {
 
         "use strict"
 
@@ -50,6 +50,7 @@ KISSY.add(function () {
 
     /**
      * 媒体查询假名, 基本用法:
+     *      @example
      *      KISSY.use("gallery/mqa/1.0/index", function(S, Mqa){
      *          Mqa.add("landscape", "(orientation: landscape)").
      *              on("landscape", function(mql){

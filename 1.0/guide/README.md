@@ -15,12 +15,12 @@ Mqa是一个简单媒体查询假名库, 是对浏览器原生的matchMedia做�
 
     @example
     //引入Mqa模块
-    KISSY.use("gallery/mqa/index", function(S, Mqa){
+    KISSY.use("gallery/mqa/1.0/index", function(S, Mqa){
         //添加假名
-        Mqa.add("smallscreen", "(min-width: 480px)");
+        Mqa.add("smallscreen", "(max-width: 480px)");
         //监听媒体查询改变事件
         Mqa.on("smallscreen", function(mql){
-            alert("当前处于" + mql.matches? "小":"大" + "屏幕");
+            alert("当前处于" + (mql.matches? "小":"大") + "屏幕");
         }, true)
     });
 

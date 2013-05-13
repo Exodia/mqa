@@ -20,7 +20,7 @@ KISSY.add(function () {
     /*! matchMedia() polyfill - Test a CSS media type/query in JS.
      Authors &amp; copyright (c) 2012: Scott Jehl, Paul Irish, Nicholas Zakas. Dual MIT/BSD license */
 
-    window.matchMedia = window.matchMedia || (function (doc, undefined) {
+    window.matchMedia = window.matchMedia || (function (doc) {
 
         &quot;use strict&quot;
 
@@ -67,6 +67,7 @@ KISSY.add(function () {
 
 <span id='Mqa'>    /**
 </span>     * 媒体查询假名, 基本用法:
+     *      @example
      *      KISSY.use(&quot;gallery/mqa/1.0/index&quot;, function(S, Mqa){
      *          Mqa.add(&quot;landscape&quot;, &quot;(orientation: landscape)&quot;).
      *              on(&quot;landscape&quot;, function(mql){
